@@ -7,7 +7,8 @@ const InputItem =() => {
         <Fragment>
             <h1 className='text-center mt-5'>Input Item</h1>
             <form >
-
+                <input type="text" />
+                <button>Add</button>
             </form>
         </Fragment>
     );
