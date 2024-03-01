@@ -12,7 +12,7 @@ app.use(express.json());// Using middleware to enable the server to parse incomi
 //#################################//
 //We use queries
 //create a list
-app.post("/items", async(req,res) =>{
+app.post("/items", async(req, res) =>{
     //async provide an await
     try {
         const {type} = req.body;
