@@ -47,49 +47,70 @@ const InputItem = () => {
   </button>
 
   {/* <!-- The Modal --> */}
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
+  <div className="modal" id="myModal">
+    <div className="modal-dialog">
+      <div className="modal-content">
       
         {/* <!-- Modal Header --> */}
-        <div class="modal-header">
-          <h4 class="modal-title">Add an item</h4>
+        <div className="modal-header">
+          <h4 className="modal-title">Add an item</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         {/* <!-- Modal body --> */}
-        <div class="modal-body">
+        <div className="modal-body">
            <form onSubmit={onSubmitForm}>
                 {/* Input fields for item details */}
-                <input 
+                <div className="modal-body">
+                    <input 
+                        type='text' 
+                        className='form-control' 
+                        // value={item_name} 
+                        onChange={e =>
+                            setItem_name(e.target.value)} />
+                </div>
+                {/* <input 
                     type="text" 
                     value={item_name} 
                     onChange={e => setItem_name(e.target.value)} 
-                />
-                <input 
-                    type="text" 
-                    value={description} 
-                    onChange={e => setDescription(e.target.value)} 
-                />
-                <input 
-                    type="number" 
-                    value={quantity} 
-                    onChange={e => setQuantity(e.target.value)} 
-                />
-                <input 
-                    type="number" 
-                    value={price} 
-                    onChange={e => setPrice(e.target.value)} 
-                />
+                /> */}
+                <div className="modal-body">
+                    <input 
+                        type="text" 
+                        className='form-control'
+                        value={description} 
+                        onChange={e => setDescription(e.target.value)} 
+                    />
+                </div>
+                <div className="modal-body">
+                    <input 
+                        type="number" 
+                        className='form-control'
+                        value={quantity} 
+                        onChange={e => setQuantity(e.target.value)} 
+                    />
+                </div>
+                <div className="modal-body">
+                    <input 
+                        type="number" 
+                        className='form-control'
+                        value={price} 
+                        onChange={e => setPrice(e.target.value)} 
+                    />
+                </div>
                 {/* Button for adding item to the database */}
-                <button>Add</button> 
+                
+                <button class="btn btn-success">Add</button> 
+            
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
             </form>
         </div>
         
         {/* <!-- Modal footer --> */}
-        <div class="modal-footer">
+        {/* <div className="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
+        </div> */}
         
       </div>
     </div>

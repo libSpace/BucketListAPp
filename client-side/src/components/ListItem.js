@@ -4,10 +4,10 @@ import EditItem from './EditItem'
 const ListItem = () =>{
 
     const [items, setItems] = useState([]);
-    const [item_name, setItem_name] = useState([]);
-    const [description, setDescription] = useState([]);
-    const [quantity, setQuantity] = useState([]);
-    const [price, setPrice] = useState([]);
+    // const [item_name, setItem_name] = useState([]);
+    // const [description, setDescription] = useState([]);
+    // const [quantity, setQuantity] = useState([]);
+    // const [price, setPrice] = useState([]);
 
 // Delete  an item function
     const deleteItemFunc = async id =>{

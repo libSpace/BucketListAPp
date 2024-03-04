@@ -48,8 +48,8 @@ const EditItem = ({item}) => {
         class="modal" 
         id={`id${item.groc_id}`}
         onClick={() => setItem_name(item.item_name)}>
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div className="modal-dialog">
+            <div className="modal-content">
 
                 {/* <!-- Modal Header --> */}
                 <div className="modal-header">
