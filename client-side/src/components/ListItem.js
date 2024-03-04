@@ -4,6 +4,11 @@ import EditItem from './EditItem'
 const ListItem = () =>{
 
     const [items, setItems] = useState([]);
+    const [item_name, setItem_name] = useState([]);
+    const [description, setDescription] = useState([]);
+    const [quantity, setQuantity] = useState([]);
+    const [price, setPrice] = useState([]);
+
 // Delete  an item function
     const deleteItemFunc = async id =>{
         try {
@@ -11,7 +16,8 @@ const ListItem = () =>{
                 method : "DELETE"
             });
 
-            setItems(items.filter(item => item.item_id !== id))
+            setItems(items.filter(item => item.groc_id !== id))
+            
             // console.log(deleteItem);
             // window.location ="/";
             // const jsonData = await response.json();
@@ -59,13 +65,18 @@ const ListItem = () =>{
         <td>john@example.com</td>
       </tr> */}
       {items.map(item =>(
-        <tr key={item.item_id}>
-            <td>{item.type}</td>
+        <tr key={item.groc_id}>
+            <td>
+                <h5>{item.item_name}</h5>
+                <p>
+                    <small>{item.quantity} x {item.description}, R{item.price}</small>
+                </p>
+            </td>
             <td>
                 <EditItem item ={ item}  />
             </td>
             <td>
-                <button onClick={() => deleteItemFunc(item.item_id)}>
+                <button onClick={() => deleteItemFunc(item.groc_id)}>
                     Delete
                 </button>
             </td>
