@@ -42,17 +42,17 @@ const EditItem = ({item}) => {
             <div class="modal-content">
 
                 {/* <!-- Modal Header --> */}
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit</h4>
+                <div className="modal-header">
+                    <h4 className="modal-title">Edit</h4>
                     <button 
                         type="button" 
-                        class="close" 
+                        className="close" 
                         data-dismiss="modal"
                         onClick={() => setType(item.type)} >&times;</button>
                 </div>
 
                 {/* <!-- Modal body --> */}
-                <div class="modal-body">
+                <div className="modal-body">
                     <input 
                         type='text' 
                         className='form-control' 
@@ -62,15 +62,15 @@ const EditItem = ({item}) => {
                 </div>
 
                 {/* <!-- Modal footer --> */}
-                <div class="modal-footer">
+                <div className="modal-footer">
                     <button 
                         type="button" 
-                        class="btn btn-warning" 
+                        className="btn btn-warning" 
                         data-dismiss="modal"
                         onClick={e => updateType(e)}>Edit</button>
                     <button 
                         type="button" 
-                        class="btn btn-danger" 
+                        className="btn btn-danger" 
                         data-dismiss="modal" 
                         onClick={() => setType(item.type)}>Close</button>
                 </div>
