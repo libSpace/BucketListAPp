@@ -1,14 +1,17 @@
 import React, {Fragment, useState} from 'react';
 
 const EditItem = ({item}) => {
-    const [type, setType] = useState(item.type);
+    const [item_name, setItem_name] = useState(item.item_name);
+    const [description, setDescription] = useState(item.description);
+    const [quantity, setQuantity] = useState(item.quantity);
+    const [price, setPrice] = useState(item.price);
 
     //Edit type function
     const updateType = async(e) => {
         e.preventDefault();
         try {
-            const body = {type};
-            const response = await fetch(`http://localhost:5000/items/${item.item_id}`,
+            const body = { item_name, description, quantity, price };
+            const response = await fetch(`http://localhost:5000/items/${item.groc_id}`,
             {
                 method: "PUT",
                 headers : {"Content-Type" : "application/json"},
@@ -21,6 +24,13 @@ const EditItem = ({item}) => {
             console.error(error.message);
         }
     }
+    // revert to the original state if not updated by the client
+    const handleItemClick = () => {
+        setItem_name(item.item_name);
+        setDescription(item.description);
+        setQuantity(item.quantity);
+        setPrice(item.price);
+    };
 
     return (
        <Fragment>
@@ -29,15 +39,15 @@ const EditItem = ({item}) => {
         type="button"  
         class="btn btn-primary" 
         data-toggle="modal" 
-        data-target={`#id${item.item_id}`}>
+        data-target={`#id${item.groc_id}`}>
     Edit
     </button>
 
     {/* <!-- The Modal --> */}
     <div 
         class="modal" 
-        id={`id${item.item_id}`}
-        onClick={() => setType(item.type)}>
+        id={`id${item.groc_id}`}
+        onClick={() => setItem_name(item.item_name)}>
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -48,7 +58,7 @@ const EditItem = ({item}) => {
                         type="button" 
                         className="close" 
                         data-dismiss="modal"
-                        onClick={() => setType(item.type)} >&times;</button>
+                        onClick={handleItemClick} >&times;</button>
                 </div>
 
                 {/* <!-- Modal body --> */}
@@ -56,9 +66,33 @@ const EditItem = ({item}) => {
                     <input 
                         type='text' 
                         className='form-control' 
-                        value={type} 
+                        value={item_name} 
                         onChange={e =>
-                                setType(e.target.value)} />
+                            setItem_name(e.target.value)} />
+                </div>
+                <div className="modal-body">
+                    <input 
+                        type='text' 
+                        className='form-control' 
+                        value={description} 
+                        onChange={e =>
+                            setDescription(e.target.value)} />
+                </div>
+                <div className="modal-body">
+                    <input 
+                        type='number' 
+                        className='form-control' 
+                        value={quantity} 
+                        onChange={e =>
+                            setQuantity(e.target.value)} />
+                </div>
+                <div className="modal-body">
+                    <input 
+                        type='number' 
+                        className='form-control' 
+                        value={price} 
+                        onChange={e =>
+                            setPrice(e.target.value)} />
                 </div>
 
                 {/* <!-- Modal footer --> */}
@@ -72,7 +106,7 @@ const EditItem = ({item}) => {
                         type="button" 
                         className="btn btn-danger" 
                         data-dismiss="modal" 
-                        onClick={() => setType(item.type)}>Close</button>
+                        onClick={handleItemClick}>Close</button>
                 </div>
 
             </div>
