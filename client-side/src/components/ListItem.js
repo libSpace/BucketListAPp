@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import Edititem from './EditItem'
+import EditItem from './EditItem'
 
 const ListItem = () =>{
 
@@ -62,9 +62,7 @@ const ListItem = () =>{
         <tr key={item.item_id}>
             <td>{item.type}</td>
             <td>
-                <button>
-                Edit
-                </button>
+                <EditItem item ={ item}  />
             </td>
             <td>
                 <button onClick={() => deleteItemFunc(item.item_id)}>
